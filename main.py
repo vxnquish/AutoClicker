@@ -56,7 +56,7 @@ class AutoClickerApp:
         title_frame.pack_propagate(False)
         title_label = tk.Label(title_frame,
                               text=f"{icon} {title}",
-                              font=('Segoe UI', 14, 'bold'),
+                              font=('GmarketSans', 14, 'bold'),
                               fg=self.colors['accent'],
                               bg=self.colors['surface'])
         title_label.pack(anchor='center')
@@ -74,13 +74,13 @@ class AutoClickerApp:
         header.pack_propagate(False)
         title_label = tk.Label(header,
                               text="🖱️ AutoClicker",
-                              font=('Segoe UI', 26, 'bold'),
+                              font=('GmarketSans', 26, 'bold'),
                               fg=self.colors['text'],
                               bg=self.colors['bg'])
         title_label.pack(anchor='center', pady=(15, 5))
         subtitle_label = tk.Label(header,
                                  text="by @vxnquish",
-                                 font=('Segoe UI', 12),
+                                 font=('GmarketSans', 12),
                                  fg=self.colors['text_secondary'],
                                  bg=self.colors['bg'])
         subtitle_label.pack(anchor='center')
@@ -91,13 +91,13 @@ class AutoClickerApp:
 
         tk.Label(input_container,
                 text="Base Interval (s):",
-                font=('Segoe UI', 11, 'bold'),
+                font=('GmarketSans', 11, 'bold'),
                 fg=self.colors['text'],
                 bg=self.colors['surface']).grid(row=0, column=0, sticky='w', padx=(0, 20), pady=(0, 5))
         self.interval_var = tk.StringVar(value="1.0")
         interval_entry = tk.Entry(input_container,
                                   textvariable=self.interval_var,
-                                  font=('Segoe UI', 11),
+                                  font=('GmarketSans', 11),
                                   bg=self.colors['secondary'],
                                   fg=self.colors['text'],
                                   insertbackground=self.colors['text'],
@@ -106,13 +106,13 @@ class AutoClickerApp:
 
         tk.Label(input_container,
                 text="Random Range ± (s):",
-                font=('Segoe UI', 11, 'bold'),
+                font=('GmarketSans', 11, 'bold'),
                 fg=self.colors['text'],
                 bg=self.colors['surface']).grid(row=0, column=1, sticky='w', pady=(0, 5))
         self.range_var = tk.StringVar(value="0.2")
         range_entry = tk.Entry(input_container,
                                 textvariable=self.range_var,
-                                font=('Segoe UI', 11),
+                                font=('GmarketSans', 11),
                                 bg=self.colors['secondary'],
                                 fg=self.colors['text'],
                                 insertbackground=self.colors['text'],
@@ -123,7 +123,7 @@ class AutoClickerApp:
         count_container.pack(anchor='center', pady=10)
         tk.Label(count_container,
                 text="Click Count:",
-                font=('Segoe UI', 11, 'bold'),
+                font=('GmarketSans', 11, 'bold'),
                 fg=self.colors['text'],
                 bg=self.colors['surface']).pack(anchor='center', pady=(0, 5))
         count_input_frame = tk.Frame(count_container, bg=self.colors['surface'])
@@ -132,7 +132,7 @@ class AutoClickerApp:
         self.count_var = tk.StringVar(value="10")
         count_entry = tk.Entry(count_input_frame,
                                 textvariable=self.count_var,
-                                font=('Segoe UI', 11),
+                                font=('GmarketSans', 11),
                                 bg=self.colors['secondary'],
                                 fg=self.colors['text'],
                                 insertbackground=self.colors['text'],
@@ -143,7 +143,7 @@ class AutoClickerApp:
         infinite_check = tk.Checkbutton(count_input_frame,
                                         text="Infinite Clicks",
                                         variable=self.infinite_var,
-                                        font=('Segoe UI', 11),
+                                        font=('GmarketSans', 11),
                                         fg=self.colors['text'],
                                         bg=self.colors['surface'],
                                         selectcolor=self.colors['secondary'],
@@ -153,7 +153,7 @@ class AutoClickerApp:
 
         self.interval_info = tk.Label(config_frame,
                                       text="",
-                                      font=('Segoe UI', 9, 'italic'),
+                                      font=('GmarketSans', 9, 'italic'),
                                       fg=self.colors['text_secondary'],
                                       bg=self.colors['surface'])
         self.interval_info.pack(anchor='center', pady=(15, 0))
@@ -168,7 +168,7 @@ class AutoClickerApp:
         self.start_btn = tk.Button(btn_container,
                                    text="▶️ Start Clicking",
                                    command=self._start_clicking,
-                                   font=('Segoe UI', 12, 'bold'),
+                                   font=('GmarketSans', 12, 'bold'),
                                    fg=self.colors['text'],
                                    bg=self.colors['success'],
                                    activebackground=self.colors['success_hover'],
@@ -180,7 +180,7 @@ class AutoClickerApp:
         self.stop_btn = tk.Button(btn_container,
                                   text="⏹️ Stop Clicking",
                                   command=self._stop_clicking,
-                                  font=('Segoe UI', 12, 'bold'),
+                                  font=('GmarketSans', 12, 'bold'),
                                   fg=self.colors['text'],
                                   bg=self.colors['danger'],
                                   activebackground=self.colors['danger_hover'],
@@ -191,7 +191,7 @@ class AutoClickerApp:
 
         hotkey_label = tk.Label(controls_frame,
                                  text="💡 Press F6 to toggle start/stop",
-                                 font=('Segoe UI', 10, 'italic'),
+                                 font=('GmarketSans', 10, 'italic'),
                                  fg=self.colors['text_secondary'],
                                  bg=self.colors['surface'])
         hotkey_label.pack(anchor='center', pady=(10, 0))
