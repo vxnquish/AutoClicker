@@ -1,38 +1,35 @@
-# -*- mode: python ; coding: utf-8 -*-
-
+# -*- mode: python; coding: utf-8 -*-
+import os
+block_cipher = None
+project_path = os.path.abspath('.')  
 
 a = Analysis(
     ['main.py'],
-    pathex=[],
+    pathex=[project_path],
     binaries=[],
-    datas=[('fonts/GmarketSansTTFBold.ttf', 'fonts'), ('fonts/GmarketSansTTFLight.ttf', 'fonts'), ('fonts/GmarketSansTTFMedium.ttf', 'fonts')],
-    hiddenimports=[],
+    datas=[
+        (os.path.join(project_path,'fonts','GmarketSansTTFBold.ttf'),   'fonts'),
+        (os.path.join(project_path,'fonts','GmarketSansTTFLight.ttf'),  'fonts'),
+        (os.path.join(project_path,'fonts','GmarketSansTTFMedium.ttf'), 'fonts'),
+    ],
+    hiddenimports=['keyboard','pyautogui'],   # ensure keyboard.py is bundled
     hookspath=[],
-    hooksconfig={},
     runtime_hooks=[],
     excludes=[],
     noarchive=False,
-    optimize=0,
 )
-pyz = PYZ(a.pure)
+pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
 
 exe = EXE(
     pyz,
     a.scripts,
     a.binaries,
+    a.zipfiles,
     a.datas,
     [],
-    name='main',
+    name='AutoClicker',     # change from 'main' to something clearer
     debug=False,
-    bootloader_ignore_signals=False,
     strip=False,
-    upx=True,
-    upx_exclude=[],
-    runtime_tmpdir=None,
-    console=False,
-    disable_windowed_traceback=False,
-    argv_emulation=False,
-    target_arch=None,
-    codesign_identity=None,
-    entitlements_file=None,
+    upx=False,               # disable UPX while debugging
+    console=False,            # turn the console on so you can catch errors
 )
