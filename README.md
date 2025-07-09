@@ -15,10 +15,11 @@ A simple, modern GUI application for automated mouse clicking with configurable 
 
 ## Installation
 
-### 1. Windows .exe (for Users)
+### 1. Windows .exe (for Users)
 
-1. Download `main.exe` from the dist folder.
-2. Unzip (if zipped) and double-click **main.exe**.
+1. Download or clone the repo and navigate to the `dist/AutoClicker/` folder.
+2. If you downloaded a ZIP, extract it to preserve the folder structure.
+3. Double-click **AutoClicker.exe** (it lives inside `dist/AutoClicker/`).
 
 > No Python or extra dependencies are required—just run the EXE.
 
@@ -32,7 +33,7 @@ A simple, modern GUI application for automated mouse clicking with configurable 
    ```
 2. (Optional) Install custom fonts:
 
-   * Download from [Google Fonts](https://fonts.google.com/)
+   * Place `GmarketSansTTFBold.ttf`, `GmarketSansTTFLight.ttf`, and `GmarketSansTTFMedium.ttf` into a local `fonts/` folder, or download them from [Google Fonts](https://fonts.google.com/).
 3. Install Python dependencies:
 
    ```bash
@@ -41,14 +42,14 @@ A simple, modern GUI application for automated mouse clicking with configurable 
 4. Run the application:
 
    ```bash
-   python autoclicker_app.py
+   python main.py
    ```
 
 ---
 
 ## Usage
 
-1. Launch the app (by the `.exe` or `python main.py`).
+1. Launch the app (via `AutoClicker.exe` or `python main.py`).
 2. Configure your desired:
 
    * **Base Interval** (seconds)
@@ -60,19 +61,25 @@ A simple, modern GUI application for automated mouse clicking with configurable 
 
 ---
 
-## Packaging (for developers)
+## Packaging (for Developers)
 
-To create a standalone Windows EXE:
+To build your own standalone Windows EXE with PyInstaller:
 
 ```bash
 pip install pyinstaller
-pyinstaller --onefile --windowed main.py
+pyinstaller --clean --onedir --windowed --name AutoClicker \
+  --add-data "fonts/GmarketSansTTFBold.ttf;fonts" \
+  --add-data "fonts/GmarketSansTTFLight.ttf;fonts" \
+  --add-data "fonts/GmarketSansTTFMedium.ttf;fonts" \
+  --hidden-import keyboard \
+  --hidden-import pyautogui \
+  main.py
 ```
 
-The generated **main.exe** will appear in the `dist/` folder. Users can run it directly—no Python needed.
+This will produce a **`dist/AutoClicker/AutoClicker.exe`** (with its `fonts/` subfolder) that users can run directly.
 
 ---
 
 ## License
 
-MIT License. Feel free to fork and modify! -@vxnquish
+MIT License. Feel free to fork and modify!
